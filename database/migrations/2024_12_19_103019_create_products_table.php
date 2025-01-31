@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->json('categories');
             $table->integer('estimated_delivery_days');
-            $table->json('photos');
+            $table->json('url_photos');
             $table->json('materials')->nullable();
             $table->boolean('is_available')->default(true);
             $table->integer('views')->default(0);

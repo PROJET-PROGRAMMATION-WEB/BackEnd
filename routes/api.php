@@ -8,6 +8,8 @@ use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\ReviewController;
 use App\Http\Controllers\API\TestController;
+use App\Http\Controllers\API\PaymentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -93,3 +95,12 @@ Route::group(['prefix' => 'reviews'], function () {
 });
 
 
+// Route pour le service de payement
+Route::middleware('auth:api')->group(function () {
+    Route::group(['prefix' => 'payment'], function (){
+        Route::post('/initiate', [PaymentController::class, 'initiate']);
+        Route::post('/notify', [PaymentController::class, 'notify'])->name('api.payment.notify');
+        Route::get('/return', [PaymentController::class, 'return'])->name('api.payment.return');
+    });
+    
+});

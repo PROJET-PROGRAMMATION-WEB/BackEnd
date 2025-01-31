@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('biography')->nullable();
             $table->string('specialty');
-            $table->json('availability')->nullable();
+            //$table->json('availability')->nullable();
             $table->decimal('average_rating', 3, 2)->default(0.00);
             $table->integer('total_reviews')->default(0);
             $table->boolean('is_available')->default(true);
