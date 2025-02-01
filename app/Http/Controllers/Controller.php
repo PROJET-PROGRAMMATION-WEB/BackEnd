@@ -9,4 +9,12 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function test()
+    {
+        return response()->json([
+            'message' => 'API fonctionne correctement!',
+            'status' => 'success'
+        ]);
+    }
 }
